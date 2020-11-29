@@ -5,7 +5,7 @@ import asyncio
 import json
 import os
 
-TOKEN = ""
+TOKEN = "NzgxNzU3NTM3MTE2MzU2NjE5.X8CScQ.k6CB5Xj_ejl61JuD74a2F1YRhso"
 basedir = os.path.abspath(os.path.dirname(__file__))
 # open dictionary json
 with open(basedir + "\\birthdays.json", "r+") as myfile:
@@ -18,7 +18,7 @@ client = commands.Bot(command_prefix='>', case_insensitive=True, intents=intents
 
 @client.command()
 async def love(context):
-    await context.send("I love you guys too <3")
+    await context.send("I love you guys :heart:")
 
 
 @client.command()
@@ -35,7 +35,7 @@ async def nana(context):
 @commands.has_permissions(manage_roles=True, ban_members=True)
 async def addbirthday(context, user, birthday):
     add_json = {user: birthday}
-    with open(basedir + "\\birthdays.json", "r+") as myfile:
+    with open(basedir + "/birthdays.json", "r+") as myfile:
         data = json.load(myfile)
         data.update(add_json)
         myfile.seek(0)
@@ -49,19 +49,19 @@ async def purgebirthdays(context):
     for guild in client.guilds:
         for member in guild.members:
             ids = [member.id for member in guild.members]
-    with open(basedir + "\\birthdays.json") as myfile:
+    with open(basedir + "/birthdays.json") as myfile:
         data = json.load(myfile)
         for entry in list(data.items()):
             if int(entry[0][3:-1]) not in ids:
                 data.pop(entry[0], entry[1])
-    with open('C:/Users/tiltl/Desktop/New folder/SamihBot/birthdays.json', 'w') as w:
+    with open('basedir + "/birthdays.json"', 'w') as w:
         w.write(json.dumps(data))
     await context.send("You purged the birthday list")
 
 
 @client.command()
 async def birthdaylist(context):
-    with open(basedir + "\\birthdays.json") as myfile:
+    with open(basedir + "/birthdays.json") as myfile:
         data = json.load(myfile)
         bdays = ""
         for entry in data.items():
@@ -73,12 +73,12 @@ async def birthdaylist(context):
 @client.command(pass_context=True)
 @commands.has_permissions(manage_roles=True, ban_members=True)
 async def deleteone(context, user):
-    with open(basedir + "\\birthdays.json") as myfile:
+    with open(basedir + "/birthdays.json") as myfile:
         data = json.load(myfile)
         for entry in list(data.items()):
             if entry[0] == user:
                 data.pop(entry[0], entry[1])
-    with open(basedir + "\\birthdays.json", 'w') as w:
+    with open(basedir + "/birthdays.json", 'w') as w:
         w.write(json.dumps(data))
         await context.send("deleted" + user)
 
@@ -94,8 +94,7 @@ async def commands(context):
 
 
 async def checktime():
-    general_channel = client.get_channel(773307586715320360)
-    samih_channel = client.get_channel(772882328979636234)
+    general_channel = client.get_channel(724338025902899354)
     now = datetime.utcnow()
     current_time = now.strftime("%d/%m-%H:%M:%S")
     for entry in birthday_data.items():
@@ -103,7 +102,6 @@ async def checktime():
             entryid = entry[0]
             myEmbed = discord.Embed(title=" :confetti_ball: HAPPY BIRTHDAY :confetti_ball: ", description="SamihBot loves you " + entryid + " :heart: and wishes you the happiest of birthdays! May you achieve all your dreams and your next year be <:PogChamp:734092872655175730> \nHere have some cake :cake:\n <:atpRtsd:733675921369858190> ", color=0x89DAFF)
             await general_channel.send(embed=myEmbed)
-            await samih_channel.send(embed=myEmbed)
 
 
 async def background_tasks():
