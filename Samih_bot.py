@@ -5,10 +5,10 @@ import asyncio
 import json
 import os
 
-TOKEN = "NzgxNzU3NTM3MTE2MzU2NjE5.X8CScQ.k6CB5Xj_ejl61JuD74a2F1YRhso"
+TOKEN = "NzgxNzU3NTM3MTE2MzU2NjE5.X8CScQ.BMT-HkSGb7beof2vcu8R6MUyEds"
 basedir = os.path.abspath(os.path.dirname(__file__))
 # open dictionary json
-with open(basedir + "\\birthdays.json", "r+") as myfile:
+with open(basedir + "/birthdays.json", "r+") as myfile:
     birthday_data = json.load(myfile)
 # initalise bot
 intents = discord.Intents.default()
