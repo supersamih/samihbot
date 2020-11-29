@@ -5,7 +5,7 @@ import asyncio
 import json
 import os
 
-TOKEN = ""
+TOKEN = "NzgxNzU3NTM3MTE2MzU2NjE5.X8CScQ.spvcowvkB7sAH1eV11yd7wW-DY4"
 basedir = os.path.abspath(os.path.dirname(__file__))
 # open dictionary json
 with open(basedir + "\\birthdays.json", "r+") as myfile:
@@ -96,10 +96,10 @@ async def commands(context):
 async def checktime():
     general_channel = client.get_channel(773307586715320360)
     samih_channel = client.get_channel(772882328979636234)
-    now = datetime.now()
+    now = datetime.utcnow()
     current_time = now.strftime("%d/%m-%H:%M:%S")
     for entry in birthday_data.items():
-        if current_time == entry[1] + "-14:01:55":
+        if current_time == entry[1] + "-01:00:00":
             entryid = entry[0]
             myEmbed = discord.Embed(title=" :confetti_ball: HAPPY BIRTHDAY :confetti_ball: ", description="SamihBot loves you " + entryid + " :heart: and wishes you the happiest of birthdays! May you achieve all your dreams and your next year be <:PogChamp:734092872655175730> \nHere have some cake :cake:\n <:atpRtsd:733675921369858190> ", color=0x89DAFF)
             await general_channel.send(embed=myEmbed)

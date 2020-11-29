@@ -10,6 +10,7 @@ give it the permissions you want using this and add it to server using this:
 https://discordapi.com/permissions.html
 
 find your token in bot tab in settings and paste it into the "" on line 8 in samih_bot.py
+congifure what time you want the bot to ping birthdays by editing the time on line 102 the time is in UTC
 
 python samih_bot.py
 
