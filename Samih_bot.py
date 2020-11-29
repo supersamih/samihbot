@@ -5,7 +5,7 @@ import asyncio
 import json
 import os
 
-TOKEN = "NzgxNzU3NTM3MTE2MzU2NjE5.X8CScQ.BMT-HkSGb7beof2vcu8R6MUyEds"
+TOKEN = ""
 basedir = os.path.abspath(os.path.dirname(__file__))
 # open dictionary json
 with open(basedir + "/birthdays.json", "r+") as myfile:
