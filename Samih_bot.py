@@ -17,6 +17,11 @@ client = commands.Bot(command_prefix='>', case_insensitive=True, intents=intents
 
 
 @client.command()
+async def love(context):
+    await context.send("I love you guys too <3")
+
+
+@client.command()
 async def saoie(context):
     await context.send("Nana's wife <:saoiePeek:759791733490843648>")
 
@@ -55,7 +60,6 @@ async def purgebirthdays(context):
 
 
 @client.command()
-@commands.has_permissions(manage_roles=True, ban_members=True)
 async def birthdaylist(context):
     with open(basedir + "\\birthdays.json") as myfile:
         data = json.load(myfile)
