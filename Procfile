@@ -1,0 +1,1 @@
+worker: python Samih_bot.py
